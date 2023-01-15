@@ -86,7 +86,7 @@ public class Multiply {
         result = removeHeadingZeros(result);
 
         //음수면 - 기호 추가
-        if ((isAMinus && !isBMinus) || (isBMinus && !isAMinus)) {
+        if (((isAMinus && !isBMinus) || (isBMinus && !isAMinus)) && !result.equals("0")) {
             result = "-"+result;
         }
 
@@ -116,9 +116,9 @@ public class Multiply {
     // String에서 앞에 붙은 연속된 0를 제거
     String removeHeadingZeros(String orig) {
         String result = orig;
-        for(int i=0; i<result.length()-1; i++) {
-            if (result.charAt(i) == '0') {
-                result = result.substring(i+1);
+        for(int i=0; i<orig.length()-1; i++) {
+            if (result.charAt(0) == '0') {
+                result = result.substring(1);
             } else  {
                 break;
             }
